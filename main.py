@@ -24,7 +24,7 @@ month = datetime.today().strftime('%m')
 year = datetime.today().strftime('%Y')
 
 def prep_driver():
-    driver_location = '/Users/admin/Downloads/chromedriver'
+    driver_location = 'driver/chromedriver'
     options = webdriver.ChromeOptions()
     options.add_argument('--lang=es')
     options.add_argument("--headless")
@@ -635,7 +635,7 @@ def download_pdf(url):
         "download.default_directory": path_loc
     }
     options.add_experimental_option("prefs", chrome_prefs)
-    driver_location = '/Users/admin/Downloads/chromedriver'
+    driver_location = 'driver/chromedriver'
     driver2 = Chrome(executable_path=driver_location, chrome_options=options)
 
     # test by inserting a URL you know that will open up a PDF file
