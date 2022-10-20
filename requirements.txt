@@ -112,7 +112,6 @@ soupsieve==2.3.2.post1
 SpeechRecognition==3.8.1
 streamlit==1.13.0
 tesseract==0.1.3
-textract==1.6.5
 tika==1.24
 toml==0.10.2
 tomli==2.0.1
