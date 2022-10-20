@@ -32,9 +32,14 @@ def prep_driver():
     _ = installff()
     from selenium import webdriver
     from selenium.webdriver import FirefoxOptions
+    from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
     opts = FirefoxOptions()
     opts.add_argument("--headless")
-    driver = webdriver.Firefox(options=opts)
+#     driver = webdriver.Firefox(options=opts)
+    
+    binary = FirefoxBinary('driver/geckodriver')
+    browser = webdriver.Firefox(firefox_binary=binary, options=opts)
+    
     return driver
 
 def load_page_comps(driver):
