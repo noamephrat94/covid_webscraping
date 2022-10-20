@@ -37,7 +37,7 @@ def prep_driver():
     opts.add_argument("--headless")
 #     driver = webdriver.Firefox(options=opts)
 
-    driver = webdriver.Firefox(executable_path='driver/geckodriver')
+    driver = webdriver.Firefox(executable_path='driver/geckodriver.exe')
     
     return driver
 
