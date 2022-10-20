@@ -16,7 +16,7 @@ import wget
 import os
 import glob
 import streamlit as st
-from webdriver_manager.chrome import ChromeDriverManager
+import sys
 
 today = datetime.today().strftime('%d-%m-%Y')
 day = datetime.today().strftime('%d')
@@ -24,12 +24,17 @@ month = datetime.today().strftime('%m')
 year = datetime.today().strftime('%Y')
 
 def prep_driver():
-    driver_location = 'driver/chromedriver'
-    options = webdriver.ChromeOptions()
-    options.add_argument('--lang=es')
-    options.add_argument("--headless")
-#     driver = webdriver.Chrome(executable_path=driver_location, chrome_options=options)
-    driver = webdriver.Chrome(ChromeDriverManager().install()) 
+    @st.experimental_singleton
+    def installff():
+      os.system('sbase install geckodriver')
+      os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
+
+    _ = installff()
+    from selenium import webdriver
+    from selenium.webdriver import FirefoxOptions
+    opts = FirefoxOptions()
+    opts.add_argument("--headless")
+    driver = webdriver.Firefox(options=opts)
     return driver
 
 def load_page_comps(driver):
