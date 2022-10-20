@@ -719,31 +719,6 @@ def croatia(driver, df):
 
     return df
 
-def azerbaijan(driver, df):
-    country = 'CROATIA'
-    print("Scraping azerbaijan...")
-    url = f'https://nk.gov.az/'
-    driver.get(url)
-    time.sleep(5)
-    html_source = driver.page_source
-    soup = BeautifulSoup(html_source, 'html.parser')
-    data = soup.findAll('div', class_='get_posts_of_cat_by_id_wrapper')
-    data = data[0].findAll('p')
-    data = data[0].find('a')
-    url = data['href']
-    driver.get(url)
-    time.sleep(5)
-    html_source = driver.page_source
-    soup = BeautifulSoup(html_source, 'html.parser')
-    data = soup.findAll('img', class_='thumb')
-    for d in data:
-        print(d['src'])
-
-    gray = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
-    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
-    blurred = cv2.GaussianBlur(thresh, (5, 5), 0)
-    flipped = (255 - blurred)
-    print(pytesseract.image_to_string(Image.open('images/37afccb1e173d50af9104f7fb0c62f42_2.jpeg')))
 
 def greece(driver, df):
     country = 'GREECE'
@@ -1036,8 +1011,7 @@ def main():
         key='download-csv'
     )
     # france(driver)
-    # kaz_data = kaz(driver)
-    # df = azerbaijan(driver, df)
+
 
 
 
