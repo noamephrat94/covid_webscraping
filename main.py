@@ -37,7 +37,7 @@ def prep_driver():
     opts.add_argument("--headless")
 #     driver = webdriver.Firefox(options=opts)
     
-    binary = FirefoxBinary('driver/geckodriver')
+    binary = FirefoxBinary('/driver/geckodriver')
     browser = webdriver.Firefox(firefox_binary=binary, options=opts)
     
     return driver
