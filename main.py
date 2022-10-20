@@ -17,8 +17,6 @@ import os
 import glob
 import streamlit as st
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.utils import ChromeType
-
 
 today = datetime.today().strftime('%d-%m-%Y')
 day = datetime.today().strftime('%d')
@@ -31,7 +29,7 @@ def prep_driver():
     options.add_argument('--lang=es')
     options.add_argument("--headless")
 #     driver = webdriver.Chrome(executable_path=driver_location, chrome_options=options)
-    driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+    driver = webdriver.Chrome(ChromeDriverManager().install()) 
     return driver
 
 def load_page_comps(driver):
