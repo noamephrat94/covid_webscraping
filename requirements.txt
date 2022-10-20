@@ -81,6 +81,7 @@ urllib3==1.26.12
 validators==0.20.0
 Wand==0.6.10
 webdriver-manager==3.8.4
+webdrivermanager==0.10.0
 wget==3.2
 wsproto==1.2.0
 xlrd==1.2.0
